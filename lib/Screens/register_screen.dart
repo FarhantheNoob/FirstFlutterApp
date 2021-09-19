@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:login_ui2/Screens/login_screen.dart';
 
+import 'main_screen.dart';
+
 class RegisterScreen extends StatelessWidget {
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
 
@@ -84,7 +86,15 @@ class RegisterScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 16.0),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      if (_formKey.currentState!.validate()) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    MainScreen()));
+                      }
+                    },
                     borderRadius: BorderRadius.circular(30.0),
                     child: Ink(
                       width: 170.0,

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:login_ui2/Screens/main_screen.dart';
 import 'package:login_ui2/Screens/register_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -82,7 +83,15 @@ class LoginScreen extends StatelessWidget {
                     ],
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      if (_formKey.currentState!.validate()) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    MainScreen()));
+                      }
+                    },
                     borderRadius: BorderRadius.circular(30.0),
                     child: Ink(
                       width: 170.0,
